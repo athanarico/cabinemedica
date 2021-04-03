@@ -1,0 +1,3 @@
+#código para associar repositório local (pasta desktop) ao repositório remoto (gitihub):
+#git remote add origin https://github.com/Tsimoesdias/GloveProcessing.git
+https://github.com/Tsimoesdias/Firebase_Esp32_HTML_JS.git

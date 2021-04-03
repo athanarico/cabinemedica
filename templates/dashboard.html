@@ -1,0 +1,96 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='dashboard.css') }}">
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='jsxgraph.css') }}">
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='webrts.css') }}">
+
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script type='text/javascript' src='https://cdn.scaledrone.com/scaledrone.min.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='plot.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='interface.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='webrts.js') }}"></script>        
+    
+{% endblock %}
+
+{% block content %}
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Projeto Maria</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Perfil</a></li>
+            <li><a href="{{ url_for('logout') }}">Sair</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Procurar...">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <h3 class="page-header">Bem vindo, {{ name }}!</h3>
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="{{ url_for('dashboard') }}">Cabine <span class="sr-only">(current)</span></a></li>
+            <li><a href="{{ url_for('relatorios') }}">Relatórios</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main"> 
+              <br><br>
+              <div class="row">
+                <div class="col-md-4 col-sm-4">
+                  <div id="pressao"></div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                  <div id="oximetria"></div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                  <div id="temperatura"></div>
+                </div>
+              </div>
+                
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                      <h4> Canal 1 - A/D: </h4>
+                      <h4 id="variavel1"> aasr</h4>
+      
+                      <h4> Canal 2 - A/D: </h4>
+                      <h4 id="variavel2"> aasr</h4>
+      
+                      <h4> Canal 3 - A/D: </h4>
+                      <h4 id="variavel3"> aasr</h4>
+                    </div> 
+                    <div class="col-md-6 col-sm-6">
+                      <div id = "callPage" class = "call-page"> 
+                          <video id = "localVideo" muted autoplay></video> 
+                          <video id = "remoteVideo" autoplay></video>
+                      </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

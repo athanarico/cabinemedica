@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Dashboard</title>
+        <script type='text/javascript' src='https://cdn.scaledrone.com/scaledrone.min.js'></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="logo">
+                <a href="#"><img src="{{ url_for('static', filename='maria.jpg')}}" ></a>
+            </div>
+        <div class="navbar">
+        
+        <div class="icon-bar" onclick="Show()">
+            <i></i>
+            <i></i>
+            <i></i>
+        </div>
+        
+        <ul id="nav-lists">
+            <li class="close"><span onclick="Hide()">×</span></li>
+            <li><a href="/cabine">Início</a></li>
+            <li><a href="/">Sair</a></li>
+        </ul>
+    
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='jsxgraph.css') }}">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"/> 
+        <script type="text/javascript" src="{{ url_for('static', filename='jsxgraph.js') }}"></script>        
+        <div id="box1" class="jxgbox" style="width:400px; height:400px; position:absolute; top:160px; left:160px;"></div>
+        <div id="temp" style="width:600px; height:50px; position:absolute; top:90px; left:180px;"><p style="font-size:25px"><b>Medidor de Temperatura</b></p></div>
+        <div id="box2" class="jxgbox" style="width:400px; height:400px; position:absolute; top:160px; left:650px;"></div>
+        <div id="oxi" style="width:600px; height:50px; position:absolute; top:90px; left:800px;"><p style="font-size:25px"><b>Oximetria</b></p></div>
+
+        <script type="text/javascript" src="{{ url_for('static', filename='interface.js') }}"></script>   
+         
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='webrts.css') }}">
+        <div id = "callPage" class = "call-page"> 
+            <video id = "localVideo" muted autoplay></video> 
+            <video id = "remoteVideo" autoplay></video>
+        </div>
+
+        <div style="width:600px; height:200px; position:absolute; top:600px; left:50px;">
+        <h3> Canal 1 - A/D: </h3>
+        <h3 id="variavel1"> aasr</h3>
+
+        <h3> Canal 2 - A/D: </h3>
+        <h3 id="variavel2"> aasr</h3>
+
+        <h3> Canal 3 - A/D: </h3>
+        <h3 id="variavel3"> aasr</h3>
+        </div>
+
+        <script type="text/javascript" src="{{ url_for('static', filename='fireb.js') }}"></script>      
+        <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>        
+
+        <!-- <video id="remoteVideo" autoplay></video> -->
+        <script type="text/javascript" src="{{ url_for('static', filename='webrts.js') }}"></script>        
+        
+    </body>
+</html> 
